@@ -5,21 +5,11 @@ import './App.css'
 
 
 function App() {
-  const [todo, setTodo] = useState(
-     {
-      title:"go gym",
-      description:"lift heavy",
-      id:1
-    })
-
-    setInterval(()=>{
-      setTodo({
-        title:"dinner",
-        description:"dinner banao eggs",
-        id:2
-      })
-    },2000)
-
+ const [todosForToday , setTodosForToday] = useState({
+  title:"dinner",
+  description:"make dinner for everyone",
+  id:1
+ })
  
   return (
     <>
@@ -28,8 +18,20 @@ function App() {
         <p>{todo.id}</p>
         <p>{todo.title}</p>
         <p>{todo.description}</p>
+        <PersonName firstName={"Bhaskar"} lastName={"King"} task={todo.title}/>
       </div>
     </>
+  )
+}
+
+const PersonName = ({firstName, lastName, task})=>{
+  return (
+    <>
+    <h1>{firstName} <br /> {lastName}</h1>
+    <p>{task}</p>
+    
+    </>
+    
   )
 }
 
