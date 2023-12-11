@@ -1,37 +1,22 @@
-import { useState } from 'react'
-
-import './App.css'
-
+import React from "react";
+import { useState, useEffect } from "react";
 
 
-function App() {
- const [todosForToday , setTodosForToday] = useState({
-  title:"dinner",
-  description:"make dinner for everyone",
-  id:1
- })
- 
+const App = () => {
+  const [todos, setTodos] = useState({
+    title:"go swim",
+    description:"tair kar aa bhai",
+    id:1
+  })
+  useEffect(()=>{
+    console.log("hello from useEffect");
+  },[])
   return (
-    <>
-      <div className="app">
-        <h1>Vite app</h1>
-        <p>{todo.id}</p>
-        <p>{todo.title}</p>
-        <p>{todo.description}</p>
-        <PersonName firstName={"Bhaskar"} lastName={"King"} task={todo.title}/>
-      </div>
-    </>
-  )
-}
-
-const PersonName = ({firstName, lastName, task})=>{
-  return (
-    <>
-    <h1>{firstName} <br /> {lastName}</h1>
-    <p>{task}</p>
-    
-    </>
-    
+    <div className="App">
+      {todos.title}
+      <br />
+      {todos.description}
+    </div>
   )
 }
 
